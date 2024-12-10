@@ -5,8 +5,16 @@ from textblob import TextBlob
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 # Загрузить JSON файл
-with open("result_group.json", "r", encoding="utf-8") as f:
+with open("result_group_shortened.json", "r", encoding="utf-8") as f:
     data = json.load(f)
+
+# Подсчитайте количество сообщений
+num_messages = len(data["messages"])
+
+# Выведите количество сообщений на экран
+print(f"Количество сообщений в чате: {num_messages}")
+
+
 
 # Преобразовать данные в таблицу с помощью pandas
 messages = []

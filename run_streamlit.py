@@ -4,4 +4,11 @@ import subprocess
 command = ["streamlit", "run", "chat_druzej.py"]
 
 # Запуск Streamlit через subprocess
-subprocess.run(command)
+process = subprocess.Popen(command, shell=True)
+
+# Далее ваш код может продолжить выполнение
+print("Streamlit сервер запущен в фоновом режиме...")
+
+
+# command = ["streamlit", "run", "main.py"] # streamlit run main.py
+# streamlit run chat_druzej.py
