@@ -52,11 +52,11 @@ def analyze_chat_data(data):
         raise
 
 if __name__ == "__main__":
-    from src.preprocess import load_chat_data  # Импортируем функцию загрузки данных
+    from src.prep import load_chat_data  # Импортируем функцию загрузки данных
 
     try:
         # Загружаем данные
-        data = load_chat_data(DATA_FILE_PATH)  # Вызываем функцию для загрузки данных
+        data = load_chat_data(DATA_FILES["GN"])  # Вызываем функцию для загрузки данных
         print("Данные успешно загружены для анализа.")
 
         # Выполняем анализ

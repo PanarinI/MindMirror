@@ -3,17 +3,17 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from config import DATA_FILE_PATH
-from src.preprocess import load_chat_data
-from src.analysis import analyze_chat_data
-from src.visualization import plot_daily_activity
+from config import DATA_FILES
+from src.prep import load_chat_data
+from src.analyze import analyze_chat_data
+from src.visual import plot_daily_activity
 
 
 
 if __name__ == "__main__":
     try:
         # Загружаем данные
-        data = load_chat_data(DATA_FILE_PATH)
+        data = load_chat_data(DATA_FILES["GN"])
         print("Данные успешно загружены.")
 
         # Выполняем анализ

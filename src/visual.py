@@ -1,9 +1,9 @@
 import matplotlib
 matplotlib.use('TkAgg')  # Устанавливаем стабильный бэкэнд
 import matplotlib.pyplot as plt
-from src.preprocess import load_chat_data
-from src.analysis import analyze_chat_data
-from config import DATA_FILE_PATH
+from src.prep import load_chat_data
+from src.analyze import analyze_chat_data
+from config import DATA_FILES
 
 
 # Функция для визуализации
@@ -26,7 +26,7 @@ def plot_daily_activity(daily_activity):
 if __name__ == "__main__":
     try:
         # Загружаем данные
-        data = load_chat_data(DATA_FILE_PATH)
+        data = load_chat_data(DATA_FILES["GN"])
         print("Данные успешно загружены.")
 
         # Выполняем анализ
