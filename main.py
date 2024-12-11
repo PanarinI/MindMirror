@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 from config import DATA_FILE_PATH
 from src.preprocess import load_chat_data
 from src.analysis import analyze_chat_data
+from src.visualization import plot_daily_activity
+
 
 
 if __name__ == "__main__":
@@ -29,7 +31,7 @@ if __name__ == "__main__":
         print("\nГруппировка сообщений по дням и участникам:")
         print(results["daily_activity"].head())  # Выводим первые строки
         # Выдаем визуализацию
-        visual = plot_daily_activity(daily_activity)
+        plot_daily_activity(results["daily_activity"])
 
     except Exception as e:
         print(f"Произошла ошибка: {e}")
