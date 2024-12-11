@@ -1,32 +1,23 @@
 import json
-import pandas as pd
+from config import DATA_FILE_PATH  # иммпортируем путь
 
 # Определяем функцию load_chat_data
-def load_chat_data(file_path):
-    """
-    Загружает данные чата из JSON.
-    Возвращает весь JSON-объект.
-    """
+def load_chat_data(DATA_FILE_PATH):
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
+        with open(DATA_FILE_PATH, 'r', encoding='utf-8') as f:
             data = json.load(f)
             print("Файл успешно загружен.")
-            print("Формат: <json>")  # Добавляем вывод формата
+            print("Формат: <json>")
             return data
     except Exception as e:
         print(f"Ошибка при загрузке файла: {e}")
         raise
 
-
-# Путь к JSON-файлу
-file_path = "data/sample.json"  # Укажите ваш путь к JSON-файлу
-
-# Используем функцию load_chat_data
-try:
-    chat_data = load_chat_data(file_path)
-
-except Exception as e:
-    print(f"Произошла ошибка при загрузке данных: {e}")
-
-
+if __name__ == "__main__":
+    try:
+        # Загружаем данные в переменную data
+        data = load_chat_data(DATA_FILE_PATH)
+        print("Данные успешно загружены.")
+    except Exception as e:
+        print(f"Произошла ошибка: {e}")
 

@@ -51,14 +51,12 @@ def analyze_chat_data(data):
         print(f"Произошла ошибка при анализе данных: {e}")
         raise
 
-
 if __name__ == "__main__":
-    from src.preprocess import load_chat_data  # Импортируем загрузчик данных
-    file_path = "data/sample.json"  # Укажите путь к вашему JSON-файлу
+    from src.preprocess import load_chat_data  # Импортируем функцию загрузки данных
 
     try:
         # Загружаем данные
-        data = load_chat_data(file_path)
+        data = load_chat_data(DATA_FILE_PATH)  # Вызываем функцию для загрузки данных
         print("Данные успешно загружены для анализа.")
 
         # Выполняем анализ
@@ -77,4 +75,3 @@ if __name__ == "__main__":
         print(results["daily_activity"].head())  # Выводим первые строки
     except Exception as e:
         print(f"Произошла ошибка: {e}")
-

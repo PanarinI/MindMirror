@@ -1,15 +1,10 @@
 import matplotlib
 matplotlib.use('TkAgg')  # Устанавливаем стабильный бэкэнд
 import matplotlib.pyplot as plt
-
 from src.preprocess import load_chat_data
+from src.analysis import analyze_chat_data
+from config import DATA_FILE_PATH
 
-# Загрузка данных
-file_path = 'data/sample.json'
-messages = load_chat_data(file_path)
-
-# Группировка данных
-daily_activity = group_messages_by_day(messages)
 
 # Функция для визуализации
 def plot_daily_activity(daily_activity):
@@ -27,7 +22,21 @@ def plot_daily_activity(daily_activity):
     plt.tight_layout()  # Оптимизируем расположение элементов
     plt.show()
 
-# Вызов функции для визуализации
-plot_daily_activity(daily_activity)
 
+if __name__ == "__main__":
+    try:
+        # Загружаем данные
+        data = load_chat_data(DATA_FILE_PATH)
+        print("Данные успешно загружены.")
 
+        # Выполняем анализ
+        results = analyze_chat_data(data)
+
+        # Извлекаем группировку сообщений по дням
+        daily_activity = results["daily_activity"]
+
+        # Вызов функции для визуализации
+        plot_daily_activity(daily_activity)
+
+    except Exception as e:
+        print(f"Произошла ошибка: {e}")

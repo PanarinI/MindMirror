@@ -3,16 +3,15 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from config import DATA_FILE_PATH
 from src.preprocess import load_chat_data
 from src.analysis import analyze_chat_data
 
-if __name__ == "__main__":
-    # Укажите путь к вашему JSON-файлу
-    file_path = "data/sample.json"
 
+if __name__ == "__main__":
     try:
         # Загружаем данные
-        data = load_chat_data(file_path)
+        data = load_chat_data(DATA_FILE_PATH)
         print("Данные успешно загружены.")
 
         # Выполняем анализ
@@ -29,6 +28,9 @@ if __name__ == "__main__":
         print(results["message_distribution"].to_string(index=False))
         print("\nГруппировка сообщений по дням и участникам:")
         print(results["daily_activity"].head())  # Выводим первые строки
+        # Выдаем визуализацию
+        visual = plot_daily_activity(daily_activity)
+
     except Exception as e:
         print(f"Произошла ошибка: {e}")
 
