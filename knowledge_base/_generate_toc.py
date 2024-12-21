@@ -5,6 +5,7 @@ import time
 knowledge_base_folder = "knowledge_base"
 notebook_folder = "notebooks"  # Папка с Jupyter Notebook
 experiments_folder = "experiments"
+MVP_folder = "MVP"
 toc_file = "_toc.md"  # Файл для оглавления теперь находится в корне
 
 def generate_toc(folder, base_folder, indent=0, include_ipynb=False, include_py=False):
@@ -61,8 +62,17 @@ if os.path.exists(experiments_folder):
 else:
     print(f"Папка {experiments_folder} не найдена.")
 
+# MVP
+if os.path.exists(MVP_folder):
+    toc_content.append("\n## MVP")
+    toc_content.extend(generate_toc(MVP_folder, MVP_folder, include_py=True))
+else:
+    print(f"Папка {MVP_folder} не найдена.")
+
+
 # Запись в файл _toc.md
 with open(toc_file, "w", encoding="utf-8") as f:
     f.write("\n".join(toc_content))
 
 print(f"Оглавление обновлено в {toc_file}.")
+

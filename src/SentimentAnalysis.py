@@ -9,7 +9,7 @@ import pandas as pd  # Для удобства работы с результа�
 sentiment_analyzer = pipeline("sentiment-analysis", model="blanchefort/rubert-base-cased-sentiment")
 
 # Загрузка данных чата
-file_path = 'F:/PythonProject/MirrorMind/data/test.json'  # Укажите путь к вашему JSON-файлу
+file_path = 'F:/PythonProject/MirrorMind/data/sample.json'  # Укажите путь к вашему JSON-файлу
 with open(file_path, 'r', encoding='utf-8') as f:
     chat_data = json.load(f)
 
